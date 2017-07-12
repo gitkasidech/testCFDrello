@@ -1,0 +1,58 @@
+tr.listdashboard {
+    margin-bottom: 24px;
+    align-items: center
+}
+
+tr.listdashboard td {
+    padding: 8px 0;
+    border-bottom: 1px solid #efefef;
+}
+
+tr.listdashboard td:last-of-type {
+    border: none;
+}
+
+tr.listdashboard td p {
+    float: left;
+    margin: 0;
+    line-height: 30px;
+}
+
+tr.listdashboard td .btn {
+    float: right;
+}
+
+
+/* next */
+
+.pagination {
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+.pagination a {
+    display: block;
+    color: black;
+    border: 1px solid #DDDDDD;
+    margin: 0 4px;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #DDDDDD;
+}
+
+table thead th {
+    background-color: #585257;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+table tbody td {
+    background-color: #f2e1ef;
+}

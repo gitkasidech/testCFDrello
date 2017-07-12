@@ -1,0 +1,12 @@
+.graph_cumulative {
+    width: 100%;
+    margin: auto;
+    float: left;
+    margin-top: 32px;
+}
+
+.cumulative {
+    width: 800px;
+    height: 400px;
+    margin: 0 auto;
+}

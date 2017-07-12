@@ -1,0 +1,40 @@
+{
+  "name": "cfdwebui",
+  "version": "1.0.0",
+  "description": "llll",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
+    "connect": "^3.6.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "express-validator": "^3.2.0",
+    "http": "0.0.0",
+    "jade": "~1.11.0",
+    "jade-bootstrap": "^1.0.14",
+    "json-parser": "^1.1.5",
+    "mongodb": "^2.2.27",
+    "mongoose": "^4.9.9",
+    "morgan": "^1.8.1",
+    "node-trello": "^1.1.2",
+    "oauth": "^0.9.15",
+    "query-string": "^4.3.4",
+    "trello": "^0.7.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start-dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://sirimainson@veteran.cg.gy/trainee/cfdWebUI.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

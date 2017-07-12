@@ -1,0 +1,196 @@
+doctype html
+html
+  head
+    title= title
+    script.
+        src="createdashboard.js"
+    meta(charset='utf-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    link(rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css")
+    link(href='/css/global.css', rel='stylesheet',  type="text/css")
+    link(href='/css/create.css', rel='stylesheet',  type="text/css")
+    link(href='/css/index.css', rel='stylesheet',  type="text/css")
+    link(rel='shortcut icon', href='/img/logo.png')
+    script(type="text/javascript")
+      $(document).ready(function(){
+      $("dl dd a.open-complete").click(function(){ $(".dialog.complete").addClass("show-dialog"); });
+      $("dl dd a.open-inprogress").click(function(){ $(".dialog.inprogress").addClass("show-dialog"); });
+      $("dl dd a.open-backlog").click(function(){ $(".dialog.backlog").addClass("show-dialog"); });
+      $(".dialog").click(function(){ $(".dialog").removeClass("show-dialog"); });
+      $(".dialog .content").click(function(e){ e.stopPropagation(); });
+      $(".dialog .content button").click(function(e){ $(".dialog").removeClass("show-dialog"); });
+      $(".go-dashboard button").click(function(e){ window.location.href ="dashboardname" });
+      });
+
+  body
+    nav.navbar.navbar-inverse
+      div.container-fluid
+        div.navbar-header
+          button(type="button", data-toggle="collapse", data-target="#myNavbar").navbar-toggle
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a#cfdrello
+              //- a(href="dashboardname?userid=") CFDrello
+
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="#")
+                span#fullName
+            li
+              a#disconnect(href="/")
+                span.glyphicon.glyphicon-log-out  LogOut
+
+    main.create.clearfix
+      div.sub-header
+        p Create Dashboards
+      form#formdashboard(action="cumulativediagram", method="post",  name="myForm")
+        div.w3-panel.w3-white
+          br
+          div.form
+            dl.listcreate
+              dt
+                p Name
+                dd
+                  input#nameDashboard(type="text", value="", name="namedashboard", maxlength="25")
+                  p#demo(style="color:red")
+                  #tokenID
+                  #userID
+                  #name
+
+
+            dl.dashboard
+              dt
+                p Board
+                dd
+                  //- input#outputBoards(list="dashboard" name="dashboard")
+                  //- datalist#dashboard
+                  //- div#outputBoards
+                  select#boards.select-style(name="idboard")
+                  //- p#lists
+            
+            //- select complete card
+            dl
+              dt
+                p Complete Cards
+                dd
+                  ul.result
+                    //- li
+                    //-   p Done
+                    //-   a(href="#") x
+                    div.select
+                      //- select#lists
+                      a(href="#complete").button.blue.open-complete Select Lists
+                      div.input-color-container
+                        input#colorcomplete(type="color", name="color_complete", list="color", onchange="colorcompleteChange()")
+                        datalist#colorpicker
+                    br
+                    //- script.
+                    //-   src="createdashboard.js"
+                    select#listscomplete(multiple class="form-control", name="complete_id", size="1") 
+                    
+                    //- select#lists(multiple class="form-control")
+            //- select in progress card
+            dl
+              dt
+                p In Progress Cards
+                dd
+                  ul.result
+                    //- li
+                    //-   p Doing
+                    //-   a(href="#") x
+                    div.select
+                      a(href="#inprogress").button.blue.open-inprogress Select Lists
+                      div.input-color-container
+                        input#colorinprogress(type="color", name="color_inprogress", list="color", onchange="colorinprogressChange()")
+                        datalist#colorpicker
+                    br
+                    //- script.
+                    //-   src="createdashboard.js"
+                    select#listsinprogress(multiple class="form-control", name="inprogress_id", size="1")
+            
+            //- select backlog card
+            dl
+              dt
+                p Backlog Cards
+                dd
+                  ul.result
+                    //- li
+                    //-   p Todo
+                    //-   a(href="#") x
+                    div.select                     
+                      a(href="#backlog").button.blue.open-backlog Select Lists
+                      div.input-color-container
+                        input#colorbacklog(type="color", name="color_backlog", list="color", onchange="colorbacklogChange()")
+                        datalist#colorpicker
+                    br
+                    //- script.
+                    //-   src="createdashboard.js"
+                    select#listsbacklog(multiple class="form-control", name="backlog_id", size="1")
+        
+        div.btn
+          button.button.green(type="submit", name="Save", value="Submit"  ) SAVE
+          #cancel
+          //- button.button.darkgray(type="submit", name="Cancel", value="Submit") CANCEL
+
+      div.dialog.complete
+        div.content
+          p.title Completed Cards
+          div.btn
+            button#savecomplete.button.green Save
+            button.button.red Close
+
+      div.dialog.inprogress
+        div.content
+          p.title In Progress Cards
+          div.btn
+            button#saveinprogress.button.green Save
+            button.button.red Close
+   
+      div.dialog.backlog
+        div.content
+          p.title Backlog Card
+          div.btn
+            button#savebacklog.button.green Save
+            button.button.red Close
+
+
+  script(src="http://code.jquery.com/jquery-1.7.1.min.js")
+  script(src="https://trello.com/1/client.js?key=575d84734099f396a4f25e78af69730b")
+  script(src="/js/createdashboard.js")
+  script(src="/js/validation.js")
+  script.
+    $("#colorpicker").kendoColorPicker({
+      palette: "basic",
+    });
+
+
+    //- function validateForm() {
+    //-   var x = document.forms["myForm"]["namedashboard"].value;
+    //-   if (x == "") {
+    //-       alert("Name must be filled out");
+    //-       return false;
+    //-   }
+    //- }
+ 
+
+    //- function myFunctionList() {
+    //-   console.log("listclick")
+    //- }
+    
+
+
+  //- script.
+  //-   $(document).ready(function(){
+  //-     //Initialise any checkboxes and radio buttons
+  //-     $('input').iCheck({
+  //-       checkboxClass: 'icheckbox_flat',
+  //-       radioClass: 'iradio_flat'
+  //-     });
+  //-   });

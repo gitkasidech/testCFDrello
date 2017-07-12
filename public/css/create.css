@@ -1,0 +1,51 @@
+.sub-header p {
+    font-size: 32px;
+}
+
+.listcreate dt.p {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.listcreate dd.input {
+    padding: 8px 32px;
+    margin-bottom: 24px;
+}
+
+.dashboard dt.p {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.dashboard dd.input {
+    padding: 8px 32px;
+    margin-bottom: 24px;
+}
+
+.select {
+    display: flex;
+}
+
+.select a {
+    margin-right: 8px;
+}
+
+.input-color-container {
+    position: relative;
+    /*overflow: hidden;*/
+    width: 60px;
+    height: 25px;
+    /*border: solid 2px #ddd;*/
+    background-color: #DCDCDC;
+    border-radius: 5px;
+}
+
+.input-color {
+    position: relative;
+    /*right: -8px;*/
+    /*top: -8px;*/
+    width: 60px;
+    height: 100px;
+    border: none;
+    border-radius: 5px;
+}

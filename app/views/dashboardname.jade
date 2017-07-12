@@ -1,0 +1,53 @@
+doctype html
+html
+  title W3.CSS
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+  body
+    
+    #rightMenu.w3-sidebar.w3-bar-block.w3-card-2.w3-animate-right(style='display:none;right:0;')
+      button.w3-bar-item.w3-button.w3-large(onclick='closeRightMenu()') Close &times;
+      |   
+      a.w3-bar-item.w3-button.a#disconnect(href="/") Logout
+   
+
+    .w3-teal  
+      button.w3-button.w3-teal.w3-xlarge.w3-right(onclick='openRightMenu()') &#x2630;
+      |   
+      .w3-container
+        h1 CFDrello
+    .w3-container
+      p In this example, we demonstrate how to use two side navigations.
+      p
+        | We have created two &quot;menu&quot; buttons: one to open the side navigation from the left and one to open it from the right.
+    |      
+    script.
+      function openLeftMenu() {
+      document.getElementById("leftMenu").style.display = "block";
+      }
+      function closeLeftMenu() {
+      document.getElementById("leftMenu").style.display = "none";
+      }
+      function openRightMenu() {
+      document.getElementById("rightMenu").style.display = "block";
+      }
+      function closeRightMenu() {
+      document.getElementById("rightMenu").style.display = "none";
+      }
+
+
+    #tokenID(name="tokenKey")
+    #userID(name="idUser")
+    #name(name="userName")
+    #fullname(name="fullName")
+    #email(name="email")  
+    
+  script(src="http://code.jquery.com/jquery-1.7.1.min.js")
+  script(src="https://trello.com/1/client.js?key=575d84734099f396a4f25e78af69730b")
+  script(src="/js/dashboardname.js")
+  script(src="/js/insertdashboardlist.js")
+  script.
+    $(function(){
+      $("#myTable").tablesorter();
+    });
+

@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    link(rel='shortcut icon', href='/img/logo.png')
+    link(href='/css/index.css', rel='stylesheet')
+    style.
+      .btn{
+        width: 400px;
+        height: 60px;
+        font-size: 30px;
+      }
+    
+
+  body
+          
+    div.jumbotron.bg-grey
+      div.container.text-center
+        img(src="/img/logo.png", width='400',alt="Logo" )
+        h1 Welcome to CFDrello Dashboard
+        p Dashboards for Scrum and Kanban teams using Trello
+        from(action="", method="")
+          button#connectLink.btn.btn-success Click Connect to Trello
+
+    div.container-fluid.text-center.bg-grey
+      div(role="listbox").carousel-inner.text-center
+        div.item.active
+          h4
+            b Cumulative Flow Diagram
+            br
+            span
+            "The Cumulative Flow Diagram (CFD) shows how many cards were in each
+            br
+            | list over time making it easy to spot bottlenecks in your process and track
+            br
+            | the impact of changes you've made."
+
+        div.item
+          h4
+            b Cycle Time Chart
+            br
+            span
+            "The cycle time chart shows how long cards took to complete
+            br
+            | and the day they were completed on. You can drill in to see how long they spent in each
+            br
+            | part of your process to help identify where cards are getting stuck."
+
+        div.item
+          h4
+            b Performance
+            br
+            span
+            "There are a bunch of other features not specifically developed
+            br
+            | for Scrum teams but useful none the less.
+
+
+
+  script(src="http://code.jquery.com/jquery-1.7.1.min.js")
+  script(src="https://trello.com/1/client.js?key=575d84734099f396a4f25e78af69730b")
+  script(src="/js/index/index.js")
