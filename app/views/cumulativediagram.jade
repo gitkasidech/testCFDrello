@@ -1,0 +1,88 @@
+doctype html
+html
+    head
+        title CFDrello Dashboard
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        script(type='text/javascript', src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="https://www.amcharts.com/lib/3/amcharts.js")
+        script(src="https://www.amcharts.com/lib/3/serial.js")
+        script(src="https://www.amcharts.com/lib/3/amstock.js")
+        script(src="https://www.amcharts.com/lib/3/plugins/export/export.min.js")
+        link(rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all")
+        script(src="https://www.amcharts.com/lib/3/themes/light.js")
+        link(rel="stylesheet" type="text/css" href="css/global.css")
+        link(rel="stylesheet" type="text/css" href="css/cumulative.css")
+        link(rel="stylesheet" type="text/css" href="css/index.css")
+        link(rel='shortcut icon', href='/img/logo.png')
+        script(type="text/javascript")
+            $(document).ready(function(){
+            $(".menu .side_menu a.click-menu").click(function(){
+            $(".menu").toggleClass("openmenu");
+            });
+            });
+
+    body
+        nav.navbar.navbar-inverse
+            div.container-fluid
+                div.navbar-header
+                    button(type="button", data-toggle="collapse", data-target="#myNavbar").navbar-toggle
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                #myNavbar.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li
+                            a#dashboard CFDrello
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href="#")
+                                span#fullName
+                        li
+                            a#disconnect(href="/")
+                                span.glyphicon.glyphicon-log-out  LogOut
+
+        div.menu
+            ul.sidemenu
+                li
+                    a.cfd(href="cumulativediagram") Cumulative Flow Diagram
+                li
+                    a.per(href="performance") Performance History
+                li
+                    a.work(href="workinout")  Work In & Work Out  
+                    
+            div.side_menu
+                a.click-menu(href="#")
+                    i.fa.fa-bars
+
+        main.cfd.clearfix
+            div.sub-header
+                div.btn
+                    p Name:
+                    p= dashboard_result.namedashboard
+                div.btn
+                    p Board:
+                    #boards 
+                input#namecomplete(type="hidden")
+                input#nameinprogress(type="hidden")
+                input#namebacklog(type="hidden")
+                    
+            div#chartdiv(style="width: 100%; height: 500px")
+            div#container(style="width: 100%; height: 500px")
+            //- div.btn
+            //-     div#completeChart(style="width: 50%; height: 400px")
+            //-     div#inprogressChart(style="width: 50%; height: 400px")
+            //-     div#backlogChart(style="width: 50%; height: 400px")
+
+        input(type="hidden", id="boardid", value=dashboard_result.idboard)
+        input(type="hidden", id="graphcomplete", value=dashboard_result.complete[0].complete_id)
+        input#colorcomplete(type="hidden", value=dashboard_result.complete[0].color_complete)
+        input(type="hidden", id="graphinprogress", value=dashboard_result.inprogress[0].inprogress_id)
+        input#colorinprogress(type="hidden", value=dashboard_result.inprogress[0].color_inprogress)
+        input(type="hidden", id="graphbacklog", value=dashboard_result.backlog[0].backlog_id)
+        input#colorbacklog(type="hidden", value=dashboard_result.backlog[0].color_backlog)
+
+    script(src="http://code.jquery.com/jquery-1.7.1.min.js")
+    script(src="https://trello.com/1/client.js?key=575d84734099f396a4f25e78af69730b")
+    script(src="/js/cumulativediagram.js")
+    script(type='text/javascript', src="https://code.highcharts.com/highcharts.js")
